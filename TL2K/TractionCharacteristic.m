@@ -42,11 +42,12 @@ yticks([0.05 0.1 0.15 0.2]);
 yticklabels({'0.05', '0.1', '0.15', '\it Phi, Wb'});
 
 %phiFigure = figure();
-F='Times New Roman';
+F='Tahoma';
 FN='FontName';
 FS='FontSize';
-l=15;% Размер шрифта
+l=20;% Размер шрифта
 set(gca, FN, F, FS, l);
+set(gcf, 'color', 'white'); %figure background
 box on;  % Рамка
 
 %% phi plots
@@ -54,12 +55,12 @@ axis;
 hold on;
 phiPlot_1 = plot(motorCurrent, PhiExperimental);
 phiPlot_2 = plot(testCurrent, PhiApprox);
-set(phiPlot_1, 'LineWidth', 3, 'LineStyle', ':', 'Color',  'k');
+set(phiPlot_1, 'LineWidth', 3, 'LineStyle', ':', 'Color',  'k', 'Marker', 'o');
 set(phiPlot_2, 'LineWidth', 3, 'LineStyle', ':', 'Color',  'r');
 grid on;
 xlim([0 800]);
 ylim([0 0.2]);
-legend('PhiExperimental', 'PhiApprox');
+legend('PhiExperimental', 'PhiApprox', 'location', 'southeast');
 yticks([0.05 0.1 0.15 0.2]);
 yticklabels({'0.05', '0.1', '0.15', '\it Phi, Wb'});
 xticks([0 100 200 300 400 500 600 700 800]);
@@ -70,11 +71,12 @@ set(gca,'ycolor','k');
 
 %% traction characteristics plots font
 h = figure('Units', 'normalized', 'OuterPosition', [0 0 1 1]);
-F='Times New Roman';
+F='Tahoma';
 FN='FontName';
 FS='FontSize';
-l=15;% Размер шрифта
+l=20;% Размер шрифта
 set(gca, FN, F, FS, l)
+set(gcf, 'color', 'white'); %figure background
 box on  % Рамка
 
 %% right axis (force)
@@ -82,8 +84,8 @@ yyaxis right;
 hold on;
 hPlot_1 = plot(motorCurrent, motorTractionForce);
 hPlot_3 = plot(modelMotorCurrent, modelMotorForce);
-set(hPlot_1, 'LineWidth', 2, 'LineStyle', '--', 'Color',  'k');
-set(hPlot_3, 'LineWidth', 2, 'LineStyle', '--', 'Color',  'r');
+set(hPlot_1, 'LineWidth', 2, 'LineStyle', '--', 'Color',  'k', 'Marker', 'o');
+set(hPlot_3, 'LineWidth', 2, 'LineStyle', '--', 'Color',  'r', 'Marker', 'x');
 grid on;
 xlim([0 800]);
 ylim([0 10000]);
@@ -100,12 +102,12 @@ yyaxis left;
 hold on;
 hPlot_2 = plot(motorCurrent, locomotiveSpeed);
 hPlot_4 = plot(modelMotorCurrent, locomotiveSpeed);
-set(hPlot_2, 'LineWidth', 2, 'LineStyle', '-.', 'Color', 'k');
-set(hPlot_4, 'LineWidth', 2, 'LineStyle', '-.', 'Color', 'r');
+set(hPlot_2, 'LineWidth', 2, 'LineStyle', '-.', 'Color', 'k', 'Marker', 'o');
+set(hPlot_4, 'LineWidth', 2, 'LineStyle', '-.', 'Color', 'r', 'Marker', 'x');
 grid on;
 xlim([0 800]);
 ylim([0 100]);
-legend('Vloc (Id) experimental', 'Vloc (Id) model','Fkd (Id) experimental', 'Fkd (Id) model', 'location', 'northwest');
+legend('Vloc (Id) experimental', 'Vloc (Id) model','Fkd (Id) experimental', 'Fkd (Id) model', 'location', 'southeast');
 yticks([10 20 30 40 50 60 70 80 90 100])
 yticklabels({'10', '20', '30', '40', '50', '60','70', '80', '90', '\it Vloc, km/h'})
 set(gca,'xcolor','k'); 
